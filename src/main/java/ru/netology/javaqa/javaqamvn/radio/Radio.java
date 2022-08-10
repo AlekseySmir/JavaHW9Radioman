@@ -18,10 +18,17 @@ public class Radio {
         currentRadioStation = newStation;
     }
     public void nextStation(){ // переход на следующую станцию
-        if (currentRadioStation >= minRadioStation){
-            setCurrentRadioStation(currentRadioStation + 1);
+        if (currentRadioStation >= maxRadioStation){
+            setCurrentRadioStation(minRadioStation);
         } else {
+            setCurrentRadioStation(currentRadioStation + 1);
+        }
+    }
+    public void prevStation(){ //переход на предыдущую станцию
+        if (currentRadioStation <=minRadioStation){
             setCurrentRadioStation(maxRadioStation);
+        } else {
+            setCurrentRadioStation(currentRadioStation - 1);
         }
     }
     public void setToMaxStation() { //задание максимальной станции

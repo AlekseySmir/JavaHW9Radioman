@@ -13,12 +13,39 @@ public class RadioTest {
         int actual = rad.currentRadioStation;
         Assertions.assertEquals(expected, actual);
     }
-    @Test
+    @Test // следующая станция в пределах
     public void currentStationPlusOne(){
         Radio rad = new Radio ();
         rad.setCurrentRadioStation(6);
         rad.nextStation();
         int expected = 7;
+        int actual = rad.currentRadioStation;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test // следующая за максимальной
+    public void stationNextMax(){
+        Radio rad = new Radio();
+        rad.setCurrentRadioStation(9);
+        rad.nextStation();
+        int expected = 0;
+        int actual = rad.currentRadioStation;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test // предыдущая станция в пределах
+    public void currentStationMinusOne(){
+        Radio rad = new Radio();
+        rad.setCurrentRadioStation(3);
+        rad.prevStation();
+        int expected = 2;
+        int actual = rad.currentRadioStation;
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test  //предыдущая от минимальной
+    public void stationLessThenMin (){
+        Radio rad = new Radio();
+        rad.setCurrentRadioStation(0);
+        rad.prevStation();
+        int expected = 9;
         int actual = rad.currentRadioStation;
         Assertions.assertEquals(expected, actual);
     }
