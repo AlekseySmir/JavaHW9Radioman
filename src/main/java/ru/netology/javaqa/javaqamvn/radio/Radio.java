@@ -48,14 +48,10 @@ public class Radio {
         currentVolume = newVolume;
     }
     public void nextVolume(){ // увеличение громкости
-        if (currentVolume < maxVolume) {
-            setCurrentVolume(currentVolume + 1);
-        }
+        setCurrentVolume(currentVolume + 1);
     }
     public void prevVolume(){  // уменьшение громкости
-        if (currentVolume > minVolume) {
             setCurrentVolume(currentVolume - 1);
-        }
     }
 
 }
