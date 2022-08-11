@@ -1,38 +1,47 @@
 package ru.netology.javaqa.javaqamvn.radio;
 
 public class Radio {
-    public int currentRadioStation; //задание станции
-
-    public int currentVolume; // задание громкости
+    private int minStation = 0;
+    private int maxStation = 9;
+    private int currentRadioStation = minStation; //задание станции
+    private int minVolume = 0;
+    private int maxVolume = 10;
+    private int currentVolume = minVolume; // задание громкости
 
     public int getCurrentRadioStation() { // запрос станции
 
         return currentRadioStation;
     }
+    public int getMaxStation(){  //возвращение максимальной станции
+        return maxStation;
+    }
+    public int getMinStation(){ //возвращение мин станции
+        return minStation;
+    }
 
     public int setCurrentRadioStation(int newStation) { //условие что станция в пределах
-        if (newStation >= 0 && newStation <=9) {
+        if (newStation >= minStation && newStation <=maxStation) {
             currentRadioStation = newStation;
 
         }
         return currentRadioStation;
     }
     public int nextStation() { // переход на следующую станцию
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < maxStation) {
             currentRadioStation = currentRadioStation +1;
         }
         else {
-            currentRadioStation = 0;
+            currentRadioStation = minStation;
         }
         return currentRadioStation;
     }
 
     public int prevStation() { //переход на предыдущую станцию
-        if (currentRadioStation > 0) {
+        if (currentRadioStation > minStation) {
             currentRadioStation = currentRadioStation - 1;
         }
         else{
-            currentRadioStation = 9;
+            currentRadioStation = maxStation;
         }
         return currentRadioStation;
     }
@@ -40,31 +49,37 @@ public class Radio {
     public int getCurrentVolume() { // запрос громкости
         return currentVolume;
     }
+    public int getMaxVolume (){ //возвращение макс громкости
+        return maxVolume;
+    }
+    public int getMinVolume (){ //возвращение мин громкости
+        return minVolume;
+    }
 
     public void setCurrentVolume(int newVolume) { //условие что громкость в пределах
-        if (newVolume < 0) {
+        if (newVolume < minVolume) {
             return;
         }
-        if (newVolume > 10) {
+        if (newVolume > maxVolume) {
             return;
         }
         currentVolume = newVolume;
     }
     //////   (изменить!!!!!!!)закоммитить и запушить
     public int nextVolume() { // увеличение громкости
-        if (currentVolume < 10){
+        if (currentVolume < maxVolume){
             currentVolume = currentVolume + 1;
         } else {
-            currentVolume = 10;
+            currentVolume = maxVolume;
         }
         return currentVolume;
     }
 
     public int prevVolume() {  // уменьшение громкости
-        if (currentVolume > 0){
+        if (currentVolume > minVolume){
             currentVolume = currentVolume - 1;
         } else {
-            currentVolume = 0;
+            currentVolume = minVolume;
         }
         return currentVolume;
     }
